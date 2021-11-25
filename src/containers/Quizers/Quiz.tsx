@@ -32,7 +32,6 @@ class Quiz extends React.Component<Quizible>
   {
     if(this.state.answerState)
     {
-      // const key = Object.keys(this.state.answerState.id);
       if(this.state.answerState.isCorrect)
         return true; 
     }
@@ -58,7 +57,7 @@ class Quiz extends React.Component<Quizible>
     this.userCache.userAnswers[answerId] = isCorrectAnswer;
     this.setState({
       answerState: {id:answerId,isCorrect:isCorrectAnswer},
-      dictionary:{...this.state.dictionary,[this.state.activeQuestion]:[...this.userCache.userAnswers]} //preview state ...this.userAnswers
+      dictionary:{...this.state.dictionary,[this.state.activeQuestion]:[...this.userCache.userAnswers]} 
     })
   }
 
@@ -162,7 +161,7 @@ interface Cacheable
    userAnswers:userAnswers
 }
 
-export interface quizState //extends ListableHelper
+export interface quizState 
 {
   successCount:number,
   dictionary:Record<number,[id:number|null,isCorrect:boolean|null]>

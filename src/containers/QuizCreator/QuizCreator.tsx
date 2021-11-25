@@ -18,27 +18,16 @@ function createOptionControl(partAuthorizableForm:Partial<Authorizable>,id:numbe
     ...partAuthorizableForm,
       errorMessage:`${partAuthorizableForm.errorMessage} does not be empty`,
       id:id
-    // id: partAuthorizableForm.id
   }, {required: true,isValid:valid})
 }
 const labelForOption = "Options";
 const labelForQuestion ='Input question';
 
-// type ControlType = 'question'|'option';
 enum ControlType{
   question ="Question",
   option = "Option"
 }
 
-// function getControl(count:number):Array<controlOption>
-// {
-//   // const question = createOptionControl({label:labelForQuestion,errorMessage:"Question"},0);
-//   // let controls = [];
-//   // // controls.push(question,...GetControlOptions(count));
-//   // const test = arrayToRecordControls(controls);
-//   // console.log(test,"TEST RECORD");
-//   return controls;
-// }
 function arrayToRecordControls(controls:Array<controlOption>)
 {
   let controlRecord:Record<number,controlOption>={};
@@ -66,7 +55,6 @@ function getOptionByType(controlType:ControlType,index:number)
 
 function getControlOptions(count:number,haveStartElement:boolean):Map<string, controlOption>
 {
-  // let controls:Array<controlOption>=[];
   let controlOptions = new Map<string, controlOption>();
 
   for (let index:number = 0; index <= count; index++) 
@@ -114,7 +102,6 @@ export default class QuizCreator extends React.Component
     const index = quiz.length + 1;
 
     const questionItem = {
-      // question: this.state.formControls[]
     }
   }
   createQuizHandler = () =>
@@ -143,64 +130,24 @@ export default class QuizCreator extends React.Component
   }
 
 
-  changeHandler = (key:string, value:string)=>  //React.ChangeEvent<HTMLInputElement>
+  changeHandler = (key:string, value:string)=>  
   {
     let formControls = new Map<string, controlOption>();
     this.state.formControls.forEach((control,keyName)=>
     {
       if(keyName==key)
       {
-        // const control = this.getControlOptionByKey(key);
         const control = this.getControlAfterTouch(this.getControlOptionByKey(key),value);
-        // console.log(control,"control");
-        // console.log(test,"test");
-
         formControls.set(key,control);
       }
       else
         formControls.set(keyName,control);
     })
     console.log(formControls,"testFormControls");
-    //let formControls = {...this.state.formControls};
-    // console.log(1,"formControls");
-    // const test = {...this.state.formControls.get(key)};
-    // const control = this.getControlOptionByKey(key);
-    // formControls.set(key,control)
 
-
-
-
-    // this.state.formControls.forEach((controlItem,keyName)=>
-    // {
-    //   console.log(1,"controlItem");
-    //   if(keyName===key)
-    //   {
-    //     const control = this.setParams({...controlItem},value);
-    //     formControls.set(keyName,control);
-    //   }
-    //   else{
-    //     formControls.set(keyName, {...controlItem});
-    //   }
-    // })
-
-    // const test = formControls.get(key);
-    // const control = {...formControls.get(key)};
-    // // console.log(control,"formControls", event);
-    // if(control!==null||control!==undefined)
-    // {
-    //   this.setParams(control,value);
-    //   control.touched = true;
-    //   control.value = value;
-    //   control.valid = validate(control.value, control.validation);
-    //   formControls.set(key,control);
-    // }
    
-
-    //= control;
-
     this.setState({
       formControls,
-     // isFormValid:validateForm(formControls)
     })
 
   }
@@ -210,7 +157,6 @@ export default class QuizCreator extends React.Component
     const inputElements:JSX.Element[]=[];
     this.state.formControls.forEach((control,key)=>
     {
-      // console.log(control,"control");
       const inputElement= (
         <Auxiliary key = {control.label + index}>
          <Input
@@ -225,18 +171,6 @@ export default class QuizCreator extends React.Component
       inputElements.push(inputElement);
     })
     return inputElements;
-    // return this.state.formControls.map((control,index)=>
-    // {
-    //   return (
-    //     <Auxiliary key = {control.label + index}>
-    //     <Input
-    //       inputData = {control}
-    //       shouldValidate ={!!control.validation}
-    //       onChange = {(event:React.ChangeEvent<HTMLInputElement>)=>this.changeHandler(control.id,event.target.value)}
-    //     />
-    //     {index===0?<hr/>:null}
-    //      </Auxiliary>
-    //   )})
   }
 
   selectChangeHandler = (event:React.ChangeEvent<HTMLInputElement>)=>

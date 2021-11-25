@@ -2,15 +2,11 @@ import {Authorizable} from '../containers/Auth/interfaces/Authorizable';
 import { Validate } from '../containers/Auth/interfaces/Validate';
 export interface controlOption extends Authorizable{
     id:number,
-    // authorizableForm:Authorizable,
-  // labe:string,
-  // errorMessage:string},
   result:{requried:boolean}
 
 }
 export function createControl(config:any,validation:Validate):controlOption
 {
-  // console.log(config,"config");
   return{
     ...config,
     validation,
@@ -43,14 +39,7 @@ export function validateForm(formControls:Map<string, controlOption>)
     if(formControls.hasOwnProperty(control))
     {
       console.log(control);
-      // isFormValid = formControls[control].valid && isFormValid;
-      // console.log(`${formControls[control].label},label, ${isFormValid}`);
-
     }
   }
   return isFormValid;
 }
-// interface props{
-//   label:string
-//   errorMessage:string
-// }

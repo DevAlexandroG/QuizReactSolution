@@ -85,25 +85,16 @@ export default class Auth extends React.Component
     return isFormValid;
   }
 
-  // onChangeH = (controlName, control) => {
-  //   this.setState({
-  //     formControls: {
-  //       ...formControls,
-  //       [controlName]: control
-  //     }
-  //   })
-  // }
 
   onChangHandler=(controlName:keyof Formable, event:React.ChangeEvent<HTMLInputElement>)=>
   {
-    // console.log(`${controlName}:`, event.target.value)
     const formControls ={...this.state.formControls};
     const control ={...formControls[controlName]};
     control.value = event.target.value;
     control.touched = true;
     control.valid = this.validateControl(control.value,control.validation);
     formControls[controlName] = control;
-    const isFormValid = formControls.email.valid && formControls.password.valid; //this.checkForm(formControls);
+    const isFormValid = formControls.email.valid && formControls.password.valid; 
     
     this.setState(
       {

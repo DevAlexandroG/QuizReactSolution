@@ -36,25 +36,36 @@ const quizl:Array<Questionable> =
 [
   {
     id:0,
-    name:"Какого цвета небо?",
-    rightAnswerId:1,
+    name:"Сколько щупалец у осьминога?",
+    rightAnswerId:3,
     answer:[
-      {id:0,text:"Черный"}, 
-      {id:1,text:"Синий"}, 
-      {id:2,text:"Красный"},
-      {id:3,text:"Зеленый"} 
+      {id:0,text:"12"}, 
+      {id:1,text:"6"}, 
+      {id:2,text:"10"},
+      {id:3,text:"8"} 
     ]
   },
 
   {
     id:1,
-    name:"В каком году основали Санкт-Петербург?",
-    rightAnswerId:3,
+    name:"Сколько планет в солнечной системе?",
+    rightAnswerId:2,
     answer:[
-      {id:0,text:"1700"}, 
-      {id:1,text:"1702"}, 
-      {id:2,text:"1701"},
-      {id:3,text:"1703"} 
+      {id:0,text:"12"}, 
+      {id:1,text:"9"}, 
+      {id:2,text:"8"},
+      {id:3,text:"7"} 
+    ]
+  },
+  {
+    id:2,
+    name:"Что такое чистая функция?",
+    rightAnswerId:0,
+    answer:[
+      {id:0,text:"Возвращает одно и то же значение для одного и того же ввода"}, 
+      {id:1,text:"Она пустая"}, 
+      {id:2,text:"Возвращает разные значения для одного и того же ввода"},
+      {id:3,text:"Выполняет принцип SRP"} 
     ]
   }
 ];
